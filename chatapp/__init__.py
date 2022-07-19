@@ -7,7 +7,7 @@ from flask_cors import CORS
 from flask_compress import Compress
 
 import config
-from common_lib.infra import DB
+from common_lib.infra.mysql import DB
 
 
 def create_app():

@@ -1,0 +1,316 @@
+Exception on /api/user/create_user [POST]
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 535, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%(user_id)s, %(first_name)s, %(last_name)s, %(email)s, %(pwd)s)' at line 4
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask_restful/__init__.py", line 467, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 84, in view
+    return current_app.ensure_sync(self.dispatch_request)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 158, in dispatch_request
+    return current_app.ensure_sync(meth)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/controller/user.py", line 15, in post
+    self.service.signup(validate)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/service/user.py", line 15, in signup
+    self.dao.create_new_user(req)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/dao/user.py", line 43, in create_new_user
+    cursor.execute(query)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 269, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 540, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%(user_id)s, %(first_name)s, %(last_name)s, %(email)s, %(pwd)s)' at line 4
+Exception on /api/user/create_user [POST]
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 535, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%(user_id)s, %(first_name)s, %(last_name)s, %(email)s, %(pwd)s)' at line 4
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask_restful/__init__.py", line 467, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 84, in view
+    return current_app.ensure_sync(self.dispatch_request)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 158, in dispatch_request
+    return current_app.ensure_sync(meth)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/controller/user.py", line 15, in post
+    self.service.signup(validate)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/service/user.py", line 15, in signup
+    self.dao.create_new_user(req)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/dao/user.py", line 43, in create_new_user
+    cursor.execute(query)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 269, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 540, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%(user_id)s, %(first_name)s, %(last_name)s, %(email)s, %(pwd)s)' at line 4
+Exception on /api/user/create_user [POST]
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 535, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%(user_id)s, %(first_name)s, %(last_name)s, %(email)s, %(pwd)s)' at line 4
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask_restful/__init__.py", line 467, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 84, in view
+    return current_app.ensure_sync(self.dispatch_request)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 158, in dispatch_request
+    return current_app.ensure_sync(meth)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/controller/user.py", line 15, in post
+    self.service.signup(validate)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/service/user.py", line 15, in signup
+    self.dao.create_new_user(req)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/dao/user.py", line 43, in create_new_user
+    cursor.execute(query)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 269, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 540, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%(user_id)s, %(first_name)s, %(last_name)s, %(email)s, %(pwd)s)' at line 4
+Exception on /api/user/create_user [POST]
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 535, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%(user_id)s, %(first_name)s, %(last_name)s, %(email)s, %(pwd)s)' at line 4
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask_restful/__init__.py", line 467, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 84, in view
+    return current_app.ensure_sync(self.dispatch_request)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 158, in dispatch_request
+    return current_app.ensure_sync(meth)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/controller/user.py", line 15, in post
+    self.service.signup(validate)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/service/user.py", line 15, in signup
+    self.dao.create_new_user(req)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/dao/user.py", line 43, in create_new_user
+    cursor.execute(query)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 269, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 540, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%(user_id)s, %(first_name)s, %(last_name)s, %(email)s, %(pwd)s)' at line 4
+Exception on /api/user/create_user [POST]
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 535, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '2ff751a3-5df5-4aa0-bf83-eb995d84f9da'', ''Kyle'', ''Jung'', ''kylejung92@gmail.c' at line 4
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/common_lib/infra/mysql.py", line 65, in cursor
+    yield cursor
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/dao/user.py", line 35, in create_new_user
+    cursor.execute(query, {
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 269, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 540, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '2ff751a3-5df5-4aa0-bf83-eb995d84f9da'', ''Kyle'', ''Jung'', ''kylejung92@gmail.c' at line 4
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 626, in statement
+    return self._executed.strip().decode('utf8')
+AttributeError: 'NoneType' object has no attribute 'strip'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask_restful/__init__.py", line 467, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 84, in view
+    return current_app.ensure_sync(self.dispatch_request)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 158, in dispatch_request
+    return current_app.ensure_sync(meth)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/controller/user.py", line 15, in post
+    self.service.signup(validate)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/service/user.py", line 15, in signup
+    self.dao.create_new_user(req)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/dao/user.py", line 43, in create_new_user
+    cursor.execute(query)
+  File "/Users/kyle/.pyenv/versions/3.8.0/lib/python3.8/contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/common_lib/infra/mysql.py", line 68, in cursor
+    if cursor.statement:
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 628, in statement
+    return self._executed.strip()
+AttributeError: 'NoneType' object has no attribute 'strip'
+Exception on /api/user/create_user [POST]
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 535, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '15cd3bea-f9af-4fde-b8af-9052e3870a8c'', ''Kyle'', ''Jung'', ''kylejung92@gmail.c' at line 4
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/common_lib/infra/mysql.py", line 65, in cursor
+    yield cursor
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/dao/user.py", line 35, in create_new_user
+    cursor.execute(query, {
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 269, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 540, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '15cd3bea-f9af-4fde-b8af-9052e3870a8c'', ''Kyle'', ''Jung'', ''kylejung92@gmail.c' at line 4
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 626, in statement
+    return self._executed.strip().decode('utf8')
+AttributeError: 'NoneType' object has no attribute 'strip'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask_restful/__init__.py", line 467, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 84, in view
+    return current_app.ensure_sync(self.dispatch_request)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 158, in dispatch_request
+    return current_app.ensure_sync(meth)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/controller/user.py", line 15, in post
+    self.service.signup(validate)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/service/user.py", line 15, in signup
+    self.dao.create_new_user(req)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/dao/user.py", line 43, in create_new_user
+    cursor.execute(query)
+  File "/Users/kyle/.pyenv/versions/3.8.0/lib/python3.8/contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/common_lib/infra/mysql.py", line 68, in cursor
+    if cursor.statement:
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 628, in statement
+    return self._executed.strip()
+AttributeError: 'NoneType' object has no attribute 'strip'
+Exception on /api/user/create_user [POST]
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 535, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%(user_id)s, %(first_name)s, %(last_name)s, %(email)s, %(pwd)s)' at line 4
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask_restful/__init__.py", line 467, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 84, in view
+    return current_app.ensure_sync(self.dispatch_request)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 158, in dispatch_request
+    return current_app.ensure_sync(meth)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/controller/user.py", line 15, in post
+    self.service.signup(validate)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/service/user.py", line 15, in signup
+    self.dao.create_new_user(req)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/dao/user.py", line 43, in create_new_user
+    cursor.execute(query)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 269, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 540, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%(user_id)s, %(first_name)s, %(last_name)s, %(email)s, %(pwd)s)' at line 4
+Exception on /api/user/create_user [POST]
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 535, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%(user_id)s, %(first_name)s, %(last_name)s, %(email)s, %(pwd)s)' at line 4
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask_restful/__init__.py", line 467, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 84, in view
+    return current_app.ensure_sync(self.dispatch_request)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 158, in dispatch_request
+    return current_app.ensure_sync(meth)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/controller/user.py", line 15, in post
+    self.service.signup(validate)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/service/user.py", line 15, in signup
+    self.dao.create_new_user(req)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/dao/user.py", line 45, in create_new_user
+    cursor.execute(query)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 269, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 540, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%(user_id)s, %(first_name)s, %(last_name)s, %(email)s, %(pwd)s)' at line 4
+Exception on /api/user/create_user [POST]
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 535, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%(user_id)s, %(first_name)s, %(last_name)s, %(email)s, %(pwd)s
+        )' at line 5
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask_restful/__init__.py", line 467, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 84, in view
+    return current_app.ensure_sync(self.dispatch_request)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 158, in dispatch_request
+    return current_app.ensure_sync(meth)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/controller/user.py", line 15, in post
+    self.service.signup(validate)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/service/user.py", line 15, in signup
+    self.dao.create_new_user(req)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/dao/user.py", line 47, in create_new_user
+    cursor.execute(query)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 269, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 540, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%(user_id)s, %(first_name)s, %(last_name)s, %(email)s, %(pwd)s
+        )' at line 5

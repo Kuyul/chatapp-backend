@@ -5,16 +5,10 @@ from marshmallow_dataclass import dataclass as dataclass_with_schema
 
 
 @dataclass_with_schema
-class UserInfo:
-    id: str
+class SignupRequest:
     email: str
-    username: str
     first_name: str
     last_name: str
-    created_date: Optional[str]
+    password: str
+    password_confirm: str
 
-
-@dataclass_with_schema
-class TemplateResponse:
-    status: str = field(default='ok')
-    Schema: ClassVar[Type[MSchema]] = MSchema

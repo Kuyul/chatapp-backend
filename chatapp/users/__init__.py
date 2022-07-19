@@ -1,8 +1,8 @@
 from flask import Blueprint
 from flask_restful import Api
-from chatapp.users.controller import UserController
+from chatapp.users.controller.user import CreateUserController
 
-user_blueprint = Blueprint('user', __name__, url_prefix='/api/users')
+user_blueprint = Blueprint('user', __name__, url_prefix='/api/user')
 user_api = Api(user_blueprint)
 
-user_api.add_resource(UserController, "/getusers")
+user_api.add_resource(CreateUserController, "/create_user")
