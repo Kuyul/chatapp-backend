@@ -4,11 +4,10 @@ from logging.handlers import TimedRotatingFileHandler
 
 from flask import Flask
 from flask_cors import CORS
-from flask_restful import Api
 from flask_compress import Compress
 
 import config
-from src.infrastructure.database.mysql import DB
+from common_lib.infra import DB
 
 
 def create_app():
@@ -29,7 +28,7 @@ def create_app():
 
 
 def register_blueprints(app: Flask) -> None:
-    from .users import user_api
+    from chatapp.users import user_api
 
     apis = [user_api]
 

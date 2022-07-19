@@ -1,7 +1,7 @@
 from typing import Optional
 
-from src.infrastructure.database.mysql import DB
-from src.library_management.users.model.user import UserInfo
+from common_lib.infra.mysql import DB
+from chatapp.users.model.user import UserInfo
 
 
 class UserDAO:

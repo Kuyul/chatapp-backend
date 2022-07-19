@@ -1,6 +1,6 @@
 from flask import Blueprint
 from flask_restful import Api
-from src.library_management.users.controller.controller import UserController
+from chatapp.users.controller import UserController
 
 user_blueprint = Blueprint('user', __name__, url_prefix='/api/users')
 user_api = Api(user_blueprint)

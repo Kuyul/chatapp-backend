@@ -1,8 +1,7 @@
 from flask.views import MethodView
-from flask import request
 
-from src.library_management.users.service.service import UserService
-from src.library_management.users.model.user import UserInfo
+from chatapp.users.service.service import UserService
+from chatapp.users.model.user import UserInfo
 
 
 class UserController(MethodView):

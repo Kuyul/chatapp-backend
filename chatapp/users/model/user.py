@@ -1,4 +1,4 @@
-from typing import ClassVar, Type, List, Literal, Optional
+from typing import ClassVar, Type, Optional
 from dataclasses import field
 from marshmallow import Schema as MSchema
 from marshmallow_dataclass import dataclass as dataclass_with_schema

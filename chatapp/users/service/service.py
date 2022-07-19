@@ -1,4 +1,4 @@
-from src.library_management.users.dao.dao import UserDAO
+from chatapp.users.dao.dao import UserDAO
 
 
 class UserService:

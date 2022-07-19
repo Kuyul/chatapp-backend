@@ -1,4 +1,4 @@
-from src.library_management import create_app
+from chatapp import create_app
 app = create_app()
 
 if __name__ == '__main__':
