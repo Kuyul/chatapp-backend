@@ -1,0 +1,50 @@
+Exception on /api/users/getusers [GET]
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/library-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/kyle/Documents/Dev/library-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/kyle/Documents/Dev/library-backend/.venv/lib/python3.8/site-packages/flask_restful/__init__.py", line 467, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/library-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 84, in view
+    return current_app.ensure_sync(self.dispatch_request)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/library-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 158, in dispatch_request
+    return current_app.ensure_sync(meth)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/library-backend/src/library_management/users/controller/controller.py", line 16, in get
+    "data": resp_schema.dump(res)
+  File "/Users/kyle/Documents/Dev/library-backend/.venv/lib/python3.8/site-packages/marshmallow/schema.py", line 557, in dump
+    result = self._serialize(processed_obj, many=many)
+  File "/Users/kyle/Documents/Dev/library-backend/.venv/lib/python3.8/site-packages/marshmallow/schema.py", line 525, in _serialize
+    value = field_obj.serialize(attr_name, obj, accessor=self.get_attribute)
+  File "/Users/kyle/Documents/Dev/library-backend/.venv/lib/python3.8/site-packages/marshmallow/fields.py", line 342, in serialize
+    return self._serialize(value, attr, obj, **kwargs)
+  File "/Users/kyle/Documents/Dev/library-backend/.venv/lib/python3.8/site-packages/marshmallow/fields.py", line 972, in _serialize
+    ret = self._format_num(value)  # type: _T
+  File "/Users/kyle/Documents/Dev/library-backend/.venv/lib/python3.8/site-packages/marshmallow/fields.py", line 949, in _format_num
+    return self.num_type(value)
+ValueError: invalid literal for int() with base 10: 'Jung'
+Exception on /api/users/getusers [GET]
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/library-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/kyle/Documents/Dev/library-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/kyle/Documents/Dev/library-backend/.venv/lib/python3.8/site-packages/flask_restful/__init__.py", line 467, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/library-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 84, in view
+    return current_app.ensure_sync(self.dispatch_request)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/library-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 158, in dispatch_request
+    return current_app.ensure_sync(meth)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/library-backend/src/library_management/users/controller/controller.py", line 16, in get
+    "data": resp_schema.dump(res)
+  File "/Users/kyle/Documents/Dev/library-backend/.venv/lib/python3.8/site-packages/marshmallow/schema.py", line 557, in dump
+    result = self._serialize(processed_obj, many=many)
+  File "/Users/kyle/Documents/Dev/library-backend/.venv/lib/python3.8/site-packages/marshmallow/schema.py", line 525, in _serialize
+    value = field_obj.serialize(attr_name, obj, accessor=self.get_attribute)
+  File "/Users/kyle/Documents/Dev/library-backend/.venv/lib/python3.8/site-packages/marshmallow/fields.py", line 342, in serialize
+    return self._serialize(value, attr, obj, **kwargs)
+  File "/Users/kyle/Documents/Dev/library-backend/.venv/lib/python3.8/site-packages/marshmallow/fields.py", line 972, in _serialize
+    ret = self._format_num(value)  # type: _T
+  File "/Users/kyle/Documents/Dev/library-backend/.venv/lib/python3.8/site-packages/marshmallow/fields.py", line 949, in _format_num
+    return self.num_type(value)
+ValueError: invalid literal for int() with base 10: 'Jung'

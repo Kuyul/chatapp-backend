@@ -1,0 +1,47 @@
+# env
+.env*
+!.env_example
+.tmp
+
+# Virtual Environment
+.venv
+
+# Log
+logs
+
+# nginx
+run
+run/*
+!deploy/agent/src/run
+
+.idea
+.editorconfig
+__pycache__
+*.pyc
+conf/gunicorn.conf
+conf/dbtoolv4.ini
+conf/client.json
+docs
+*~
+
+# Mac
+.DS_Store
+
+.happypack
+node_modules
+
+
+# Private Keys
+*.pem
+
+# cache
+.pytest_cache/
+**/..cache/
+
+# alembic.ini
+alembic.ini
+
+# test coverage
+.coverage
+test_coverage
+.vscode/
