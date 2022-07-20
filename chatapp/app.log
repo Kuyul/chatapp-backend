@@ -630,3 +630,159 @@ Traceback (most recent call last):
   File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/controller/friends.py", line 20, in get
     return make_output(data=resp_schema(resp), status="ok", error=None)
 TypeError: 'GetFriendsResponse' object is not callable
+Exception on /api/user/add_friend [POST]
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 535, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 5
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/common_lib/infra/mysql.py", line 65, in cursor
+    yield cursor
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/dao/friends.py", line 51, in add_friends
+    cursor.execute(query, {
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 269, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 540, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.ProgrammingError: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 5
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 626, in statement
+    return self._executed.strip().decode('utf8')
+AttributeError: 'NoneType' object has no attribute 'strip'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask_restful/__init__.py", line 467, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 84, in view
+    return current_app.ensure_sync(self.dispatch_request)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 158, in dispatch_request
+    return current_app.ensure_sync(meth)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/controller/friends.py", line 29, in post
+    self.service.add_friend(req)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/service/friends.py", line 14, in add_friend
+    self.dao.add_friends(req)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/dao/friends.py", line 51, in add_friends
+    cursor.execute(query, {
+  File "/Users/kyle/.pyenv/versions/3.8.0/lib/python3.8/contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/common_lib/infra/mysql.py", line 68, in cursor
+    if cursor.statement:
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 628, in statement
+    return self._executed.strip()
+AttributeError: 'NoneType' object has no attribute 'strip'
+Exception on /api/user/add_friend [POST]
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 535, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: Duplicate entry 'feed2f1d-5985-4c61-9034-a75a637e4b00-5d678aa5-21c1-4d27-b0b4-3e9' for key 'CHAT_USER_FRND.PRIMARY'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/common_lib/infra/mysql.py", line 65, in cursor
+    yield cursor
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/dao/friends.py", line 51, in add_friends
+    cursor.execute(query, {
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 269, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 540, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry 'feed2f1d-5985-4c61-9034-a75a637e4b00-5d678aa5-21c1-4d27-b0b4-3e9' for key 'CHAT_USER_FRND.PRIMARY'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 626, in statement
+    return self._executed.strip().decode('utf8')
+AttributeError: 'NoneType' object has no attribute 'strip'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask_restful/__init__.py", line 467, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 84, in view
+    return current_app.ensure_sync(self.dispatch_request)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 158, in dispatch_request
+    return current_app.ensure_sync(meth)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/controller/friends.py", line 29, in post
+    self.service.add_friend(req)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/service/friends.py", line 14, in add_friend
+    self.dao.add_friends(req)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/dao/friends.py", line 51, in add_friends
+    cursor.execute(query, {
+  File "/Users/kyle/.pyenv/versions/3.8.0/lib/python3.8/contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/common_lib/infra/mysql.py", line 68, in cursor
+    if cursor.statement:
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 628, in statement
+    return self._executed.strip()
+AttributeError: 'NoneType' object has no attribute 'strip'
+Exception on /api/user/add_friend [POST]
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 535, in cmd_query
+    self._cmysql.query(query,
+_mysql_connector.MySQLInterfaceError: Duplicate entry 'feed2f1d-5985-4c61-9034-a75a637e4b00-51559188-41e8-4473-ba91-83f' for key 'CHAT_USER_FRND.PRIMARY'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/common_lib/infra/mysql.py", line 65, in cursor
+    yield cursor
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/dao/friends.py", line 51, in add_friend
+    cursor.execute(query, {
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 269, in execute
+    result = self._cnx.cmd_query(stmt, raw=self._raw,
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/connection_cext.py", line 540, in cmd_query
+    raise errors.get_mysql_exception(exc.errno, msg=exc.msg,
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry 'feed2f1d-5985-4c61-9034-a75a637e4b00-51559188-41e8-4473-ba91-83f' for key 'CHAT_USER_FRND.PRIMARY'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 626, in statement
+    return self._executed.strip().decode('utf8')
+AttributeError: 'NoneType' object has no attribute 'strip'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask_restful/__init__.py", line 467, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 84, in view
+    return current_app.ensure_sync(self.dispatch_request)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 158, in dispatch_request
+    return current_app.ensure_sync(meth)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/controller/friends.py", line 29, in post
+    self.service.add_friend(req)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/service/friends.py", line 15, in add_friend
+    self.dao.add_friend(req)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/users/dao/friends.py", line 51, in add_friend
+    cursor.execute(query, {
+  File "/Users/kyle/.pyenv/versions/3.8.0/lib/python3.8/contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/common_lib/infra/mysql.py", line 68, in cursor
+    if cursor.statement:
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 628, in statement
+    return self._executed.strip()
+AttributeError: 'NoneType' object has no attribute 'strip'

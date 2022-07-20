@@ -20,3 +20,16 @@ class FriendUser:
 @dataclass_with_schema
 class GetFriendsResponse:
     friends: List[FriendUser]
+
+
+@dataclass_with_schema
+class AddFriendRequest:
+    user_id: str
+    friend_id: str
+
+
+@dataclass_with_schema
+class RemoveFriendRequest:
+    user_id: str
+    friend_id: str
+
