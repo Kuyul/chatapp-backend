@@ -12,3 +12,16 @@ class SignupRequest:
     password: str
     password_confirm: str
 
+
+@dataclass_with_schema
+class SigninRequest:
+    email: str
+    password: str
+
+
+@dataclass_with_schema
+class SigninRepsonse:
+    user_id: str
+
+
+

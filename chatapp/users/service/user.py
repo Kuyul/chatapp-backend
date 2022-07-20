@@ -1,5 +1,5 @@
 from chatapp.users.dao.user import UserDAO
-from chatapp.users.model.user import SignupRequest
+from chatapp.users.model.user import SignupRequest, SigninRequest
 
 
 class UserService:
@@ -13,3 +13,15 @@ class UserService:
             return None
 
         self.dao.create_new_user(req)
+
+    def signin(self, req: SigninRequest):
+        user_id = self.dao.get_user_by_email(req.email)
+        if user_id is None:
+            raise Exception("No User Found")
+
+        pwd = self.dao.get_password(user_id)
+
+        if pwd != req.password:
+            raise Exception("Incorrect Password")
+
+        return user_id

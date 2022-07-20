@@ -29,8 +29,9 @@ def create_app():
 
 def register_blueprints(app: Flask) -> None:
     from chatapp.users import user_api
+    from chatapp.chat import chat_api
 
-    apis = [user_api]
+    apis = [user_api, chat_api]
 
     for _api in apis:
         app.register_blueprint(_api.blueprint)

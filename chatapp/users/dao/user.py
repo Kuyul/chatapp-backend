@@ -33,11 +33,9 @@ class UserDAO:
         );
         """
 
-        uuid = str(uuid4())
-
         with self.db.cursor(dictionary=True) as cursor:
             cursor.execute(query, {
-                'user_id': uuid,
+                'user_id': str(uuid4()),
                 'first_name': req.first_name,
                 'last_name': req.last_name,
                 'email': req.email,
@@ -56,3 +54,18 @@ class UserDAO:
             row = cursor.fetchone()
 
             return row['USER_ID']
+
+    def get_password(self, user_id: str):
+        query = """
+        SELECT PWD
+        FROM CHAT_USER
+        WHERE USER_ID = %(user_id)s
+        """
+
+        with self.db.cursor(dictionary=True) as cursor:
+            cursor.execute(query, {
+                'user_id': user_id
+            })
+            row = cursor.fetchone()
+
+            return row['PWD']
