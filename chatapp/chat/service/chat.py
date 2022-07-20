@@ -1,5 +1,5 @@
 from chatapp.chat.dao.chat import ChatDAO
-from chatapp.chat.model.chat import SendChatRequest, GetChatSessionsRequest
+from chatapp.chat.model.chat import SendChatRequest, GetChatSessionsRequest, GetChatMessageRequest
 
 
 class ChatService:
@@ -21,3 +21,8 @@ class ChatService:
     def get_session_list(self, req: GetChatSessionsRequest):
         chat_sessions = self.dao.get_chat_sessions(req)
         return chat_sessions
+
+    def get_messages(self, req: GetChatMessageRequest):
+        messages = self.dao.get_chat_messages(req)
+        return messages
+

@@ -32,3 +32,21 @@ class SendChatRequest:
     to_user_id: str
     message: str
     session_id: Optional[str] = None
+
+
+@dataclass_with_schema
+class GetChatMessageRequest:
+    session_id: str
+
+
+@dataclass
+class ChatMessage:
+    session_id: str
+    sent_user: str
+    sent_time: datetime
+    message: str
+
+
+@dataclass_with_schema
+class GetChatMessagesResponse:
+    chat_messages: List[ChatMessage]

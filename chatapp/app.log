@@ -594,3 +594,24 @@ Traceback (most recent call last):
   File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/mysql/connector/cursor_cext.py", line 628, in statement
     return self._executed.strip()
 AttributeError: 'NoneType' object has no attribute 'strip'
+Exception on /api/chat/messages [GET]
+Traceback (most recent call last):
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask_restful/__init__.py", line 467, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 84, in view
+    return current_app.ensure_sync(self.dispatch_request)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/flask/views.py", line 158, in dispatch_request
+    return current_app.ensure_sync(meth)(*args, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/chatapp/chat/controller/chat.py", line 40, in get
+    req = GetChatMessageRequest.Schema().load(request.get_json(force=True, silent=True))
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/marshmallow_dataclass/__init__.py", line 638, in load
+    all_loaded = super().load(data, many=many, **kwargs)
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/marshmallow/schema.py", line 722, in load
+    return self._do_load(
+  File "/Users/kyle/Documents/Dev/chatapp-backend/.venv/lib/python3.8/site-packages/marshmallow/schema.py", line 909, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'session_id': ['Missing data for required field.'], 'user_id': ['Unknown field.']}

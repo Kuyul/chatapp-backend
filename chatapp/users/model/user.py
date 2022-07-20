@@ -24,4 +24,5 @@ class SigninRepsonse:
     user_id: str
 
 
-
+@dataclass_with_schema
+class 

@@ -2,7 +2,8 @@ from typing import Optional, List
 from uuid import uuid4
 from common_lib.infra.mysql import DB
 
-from chatapp.chat.model.chat import SendChatRequest, GetChatSessionsRequest, ChatSessionDetails
+from chatapp.chat.model.chat import SendChatRequest, GetChatSessionsRequest, ChatSessionDetails, GetChatMessageRequest,\
+    ChatMessage
 
 
 class ChatDAO:
@@ -138,3 +139,32 @@ class ChatDAO:
                 )
 
             return return_list
+
+    def get_chat_messages(self, req: GetChatMessageRequest) -> List[ChatMessage]:
+        query = """
+        SELECT SESS_ID
+        , MSG
+        , USER_ID
+        , SENT_DT 
+        FROM CHAT_SESS_MSG
+        WHERE SESS_ID = %(session_id)s
+        """
+
+        with self.db.cursor(dictionary=True) as cursor:
+            cursor.execute(query, {
+                "session_id": req.session_id
+            })
+
+            rows = cursor.fetchall()
+            messages = []
+            for row in rows:
+                msg = ChatMessage(
+                    session_id=row['SESS_ID'],
+                    message=row['MSG'],
+                    sent_time=row['SENT_DT'],
+                    sent_user=row['USER_ID']
+                )
+                messages.append(msg)
+
+            return messages
+
