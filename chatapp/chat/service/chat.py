@@ -1,5 +1,5 @@
 from chatapp.chat.dao.chat import ChatDAO
-from chatapp.chat.model.chat import SendChatRequest
+from chatapp.chat.model.chat import SendChatRequest, GetChatSessionsRequest
 
 
 class ChatService:
@@ -17,3 +17,7 @@ class ChatService:
 
         # send chat to the created session
         self.dao.send_chat_message(session_id, req)
+
+    def get_session_list(self, req: GetChatSessionsRequest):
+        chat_sessions = self.dao.get_chat_sessions(req)
+        return chat_sessions

@@ -1,8 +1,8 @@
-from typing import Optional
+from typing import Optional, List
 from uuid import uuid4
 from common_lib.infra.mysql import DB
 
-from chatapp.chat.model.chat import SendChatRequest
+from chatapp.chat.model.chat import SendChatRequest, GetChatSessionsRequest, ChatSessionDetails
 
 
 class ChatDAO:
@@ -80,3 +80,61 @@ class ChatDAO:
                 "message": req.message,
                 "from_user_id": req.from_user_id
             })
+
+    def get_chat_sessions(self, req: GetChatSessionsRequest) -> List[ChatSessionDetails]:
+        query = """
+        SELECT CSU.SESS_ID          AS SESS_ID
+        , CU.FIRST_NAME             AS USER_FIRST_NAME
+        , CSM.MSG                   AS MSG
+        , TBL1.MAX_SENT_DT          AS MAX_SENT_DT
+        , (SELECT CU2.FIRST_NAME 
+            FROM CHAT_SESS_USER CSU2
+            INNER JOIN CHAT_USER CU2
+            ON CU2.USER_ID = CSU2.USER_ID
+            WHERE CSU2.SESS_ID = CSU.SESS_ID  
+            AND CSU2.USER_ID != CSU.USER_ID
+        LIMIT 1) SESS_OTHER_USER -- finding the name of the other end of the user
+        
+        , (SELECT CU2.PROF_PIC_URL 
+            FROM CHAT_SESS_USER CSU2
+            INNER JOIN CHAT_USER CU2
+            ON CU2.USER_ID = CSU2.USER_ID
+            WHERE CSU2.SESS_ID = CSU.SESS_ID  
+            AND CSU2.USER_ID != CSU.USER_ID
+        LIMIT 1) SESS_OTHER_USER_PROF -- finding the profile pic of the other end of the user
+        
+        FROM CHAT_SESS_USER CSU
+        INNER JOIN CHAT_SESS_MSG CSM
+        ON CSU.SESS_ID = CSM.SESS_ID
+        INNER JOIN CHAT_USER CU
+        ON CSM.USER_ID = CU.USER_ID
+        INNER JOIN (
+            SELECT MAX(SENT_DT) AS MAX_SENT_DT
+            FROM CHAT_SESS_MSG
+            GROUP BY SESS_ID
+        ) TBL1
+        ON TBL1.MAX_SENT_DT = CSM.SENT_DT
+        WHERE CSU.USER_ID = %(user_id)s
+        GROUP BY CSU.SESS_ID;
+        """
+
+        with self.db.cursor(dictionary=True) as cursor:
+            cursor.execute(query, {
+                "user_id": req.user_id
+            })
+            rows = cursor.fetchall()
+
+            return_list = []
+            for row in rows:
+                return_list.append(
+                    ChatSessionDetails(
+                        session_id=row['SESS_ID'],
+                        session_other_user=row['SESS_OTHER_USER'],
+                        prof_pic_url=row['SESS_OTHER_USER_PROF'],
+                        last_message=row['MSG'],
+                        last_message_time=row['MAX_SENT_DT'],
+                        last_sent_user_name=row['USER_FIRST_NAME']
+                    )
+                )
+
+            return return_list
