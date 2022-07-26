@@ -10,7 +10,7 @@ class GetFriendsController(MethodView):
     def __init__(self):
         self.service = FriendsService()
 
-    def get(self):
+    def post(self):
         req = GetFriendsRequest.Schema().load(request.get_json(force=True, silent=True))
         friends = self.service.get_friends(req)
 

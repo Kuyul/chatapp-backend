@@ -22,7 +22,7 @@ class GetChatSessionsController(MethodView):
     def __init__(self):
         self.service = ChatService()
 
-    def get(self):
+    def post(self):
         resp_schema = GetChatSessionsResponse.Schema()
         req = GetChatSessionsRequest.Schema().load(request.get_json(force=True, silent=True))
         session_list = self.service.get_session_list(req)
@@ -35,7 +35,7 @@ class GetMessagesController(MethodView):
     def __init__(self):
         self.service = ChatService()
 
-    def get(self):
+    def post(self):
         resp_schema = GetChatMessagesResponse.Schema()
         req = GetChatMessageRequest.Schema().load(request.get_json(force=True, silent=True))
         messages = self.service.get_messages(req)

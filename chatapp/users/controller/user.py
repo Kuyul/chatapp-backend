@@ -21,7 +21,7 @@ class UserSignInController(MethodView):
     def __init__(self):
         self.service = UserService()
 
-    def get(self):
+    def post(self):
         resp_schema = SigninRepsonse.Schema()
         validate = SigninRequest.Schema().load(request.get_json(force=True, silent=True))
         user_id = self.service.signin(validate)
