@@ -40,3 +40,16 @@ class FriendUser:
 @dataclass_with_schema
 class GetFriendsResponse:
     friends: List[FriendUser]
+
+
+@dataclass_with_schema
+class GetUserInfoRequest:
+    user_id: str
+
+
+@dataclass_with_schema
+class GetUserInfoResponse:
+    email: str
+    first_name: str
+    last_name: str
+    prof_pic_url: str

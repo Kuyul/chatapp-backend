@@ -1,7 +1,7 @@
 from typing import Optional
 from uuid import uuid4
 from common_lib.infra.mysql import DB
-from chatapp.users.model.user import SignupRequest
+from chatapp.users.model.user import SignupRequest, GetUserInfoResponse
 
 
 class UserDAO:
@@ -69,3 +69,28 @@ class UserDAO:
             row = cursor.fetchone()
 
             return row['PWD']
+
+    def get_user_information(self, user_id: str):
+        query = """
+        SELECT FIRST_NAME
+        , LAST_NAME
+        , PROF_PIC_URL
+        , EMAIL
+        FROM CHAT_USER
+        WHERE USER_ID = %(user_id)s;
+        """
+
+        with self.db.cursor(dictionary=True) as cursor:
+            cursor.execute(query, {
+                'user_id': user_id
+            })
+            row = cursor.fetchone()
+
+            user_info = GetUserInfoResponse(
+                first_name=row['FIRST_NAME'],
+                last_name=row['LAST_NAME'],
+                prof_pic_url=row['PROF_PIC_URL'],
+                email=row['EMAIL']
+            )
+
+            return user_info

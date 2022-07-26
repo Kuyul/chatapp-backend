@@ -3,7 +3,9 @@ from flask import request
 from chatapp.template import make_output
 
 from chatapp.users.service.user import UserService
-from chatapp.users.model.user import SignupRequest, SigninRequest, SigninRepsonse
+from chatapp.users.model.user import SignupRequest, SigninRequest, SigninRepsonse, GetUserInfoRequest, \
+    GetUserInfoResponse
+
 
 
 class CreateUserController(MethodView):
@@ -28,3 +30,17 @@ class UserSignInController(MethodView):
         resp = SigninRepsonse(user_id)
 
         return make_output(data=resp_schema.dump(resp), status="ok", error=None)
+
+
+class GetUserInfoController(MethodView):
+    def __init__(self):
+        self.service = UserService()
+
+    def post(self):
+        validate = GetUserInfoRequest.Schema().load(request.get_json(force=True, silent=True))
+        user_info = self.service.get_user_info(validate)
+
+        resp_schema = GetUserInfoResponse.Schema()
+
+        return make_output(data=resp_schema.dump(user_info), status="ok", error=None)
+

@@ -1,5 +1,5 @@
 from chatapp.users.dao.user import UserDAO
-from chatapp.users.model.user import SignupRequest, SigninRequest
+from chatapp.users.model.user import SignupRequest, SigninRequest, GetUserInfoRequest
 
 
 class UserService:
@@ -25,3 +25,8 @@ class UserService:
             raise Exception("Incorrect Password")
 
         return user_id
+
+    def get_user_info(self, req: GetUserInfoRequest):
+        user_id = req.user_id
+        user_info = self.dao.get_user_information(user_id)
+        return user_info
