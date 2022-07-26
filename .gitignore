@@ -30,6 +30,7 @@ docs
 
 .happypack
 node_modules
+nohup.out
 
 
 # Private Keys
