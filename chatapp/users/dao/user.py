@@ -1,7 +1,7 @@
-from typing import Optional
+from typing import List
 from uuid import uuid4
 from common_lib.infra.mysql import DB
-from chatapp.users.model.user import SignupRequest, GetUserInfoResponse
+from chatapp.users.model.user import SignupRequest, UserInfo
 
 
 class UserDAO:
@@ -72,7 +72,8 @@ class UserDAO:
 
     def get_user_information(self, user_id: str):
         query = """
-        SELECT FIRST_NAME
+        SELECT USER_ID
+        , FIRST_NAME
         , LAST_NAME
         , PROF_PIC_URL
         , EMAIL
@@ -86,7 +87,8 @@ class UserDAO:
             })
             row = cursor.fetchone()
 
-            user_info = GetUserInfoResponse(
+            user_info = UserInfo(
+                user_id=row['USER_ID'],
                 first_name=row['FIRST_NAME'],
                 last_name=row['LAST_NAME'],
                 prof_pic_url=row['PROF_PIC_URL'],
@@ -94,3 +96,40 @@ class UserDAO:
             )
 
             return user_info
+
+    def search_user_list(self, keyword: str) -> List[UserInfo]:
+
+        # Adjust for LIKE statement query
+        keyword_query = '%' + keyword + '%'
+
+        query = f"""
+        SELECT USER_ID
+        , FIRST_NAME
+        , LAST_NAME
+        , PROF_PIC_URL
+        , EMAIL
+        FROM CHAT_USER
+        WHERE FIRST_NAME LIKE %(keyword)s
+        OR LAST_NAME LIKE %(keyword)s
+        OR EMAIL LIKE %(keyword)s;
+        """
+
+        with self.db.cursor(dictionary=True) as cursor:
+            cursor.execute(query, {
+                'keyword': keyword_query
+            })
+
+            rows = cursor.fetchall()
+
+            user_list = []
+            for row in rows:
+                user = UserInfo(
+                    user_id=row['USER_ID'],
+                    last_name=row['LAST_NAME'],
+                    first_name=row['FIRST_NAME'],
+                    prof_pic_url=row['PROF_PIC_URL'],
+                    email=row['EMAIL']
+                )
+                user_list.append(user)
+
+            return user_list

@@ -1,5 +1,5 @@
 from chatapp.users.dao.user import UserDAO
-from chatapp.users.model.user import SignupRequest, SigninRequest, GetUserInfoRequest
+from chatapp.users.model.user import SignupRequest, SigninRequest, GetUserInfoRequest, SearchUserRequest
 
 
 class UserService:
@@ -30,3 +30,8 @@ class UserService:
         user_id = req.user_id
         user_info = self.dao.get_user_information(user_id)
         return user_info
+
+    def search_user_list(self, req: SearchUserRequest):
+        keyword = req.keyword
+        user_list = self.dao.search_user_list(keyword)
+        return user_list

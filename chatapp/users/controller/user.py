@@ -4,8 +4,7 @@ from chatapp.template import make_output
 
 from chatapp.users.service.user import UserService
 from chatapp.users.model.user import SignupRequest, SigninRequest, SigninRepsonse, GetUserInfoRequest, \
-    GetUserInfoResponse
-
+    UserInfo, SearchUserResponse, SearchUserRequest
 
 
 class CreateUserController(MethodView):
@@ -40,7 +39,20 @@ class GetUserInfoController(MethodView):
         validate = GetUserInfoRequest.Schema().load(request.get_json(force=True, silent=True))
         user_info = self.service.get_user_info(validate)
 
-        resp_schema = GetUserInfoResponse.Schema()
+        resp_schema = UserInfo.Schema()
 
         return make_output(data=resp_schema.dump(user_info), status="ok", error=None)
 
+
+class SearchUserController(MethodView):
+    def __init__(self):
+        self.service = UserService()
+
+    def post(self):
+        validate = SearchUserRequest.Schema().load(request.get_json(force=True, silent=True))
+        user_list = self.service.search_user_list(validate)
+
+        resp_schema = SearchUserResponse.Schema()
+        resp = SearchUserResponse(user_list)
+
+        return make_output(data=resp_schema.dump(resp), status="ok", error=None)
