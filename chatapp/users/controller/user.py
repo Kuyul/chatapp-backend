@@ -4,7 +4,7 @@ from chatapp.template import make_output
 
 from chatapp.users.service.user import UserService
 from chatapp.users.model.user import SignupRequest, SigninRequest, SigninRepsonse, GetUserInfoRequest, \
-    UserInfo, SearchUserResponse, SearchUserRequest
+    UserInfo, SearchUserResponse, SearchUserRequest, UpdateUserInfoRequest
 
 
 class CreateUserController(MethodView):
@@ -56,3 +56,14 @@ class SearchUserController(MethodView):
         resp = SearchUserResponse(user_list)
 
         return make_output(data=resp_schema.dump(resp), status="ok", error=None)
+
+
+class UpdateUserInfoController(MethodView):
+    def __init__(self):
+        self.service = UserService()
+
+    def post(self):
+        validate = UpdateUserInfoRequest.Schema().load(request.get_json(force=True, silent=True))
+        self.service.update_user_info(validate)
+
+        return make_output(data={}, status="ok", error=None)

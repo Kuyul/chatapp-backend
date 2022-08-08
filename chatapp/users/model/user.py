@@ -47,3 +47,11 @@ class SearchUserRequest:
 @dataclass_with_schema
 class SearchUserResponse:
     user_list: List[UserInfo]
+
+
+@dataclass_with_schema
+class UpdateUserInfoRequest:
+    user_id: str
+    first_name: Optional[str] = None
+    last_name: Optional[str] = None
+    prof_pic_url: Optional[str] = None

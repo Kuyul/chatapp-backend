@@ -1,5 +1,6 @@
 from chatapp.users.dao.user import UserDAO
-from chatapp.users.model.user import SignupRequest, SigninRequest, GetUserInfoRequest, SearchUserRequest
+from chatapp.users.model.user import SignupRequest, SigninRequest, GetUserInfoRequest, SearchUserRequest,\
+    UpdateUserInfoRequest
 
 
 class UserService:
@@ -35,3 +36,6 @@ class UserService:
         keyword = req.keyword
         user_list = self.dao.search_user_list(keyword)
         return user_list
+
+    def update_user_info(self, req: UpdateUserInfoRequest):
+        self.dao.update_user_info(req)

@@ -1,7 +1,7 @@
 from typing import List
 from uuid import uuid4
 from common_lib.infra.mysql import DB
-from chatapp.users.model.user import SignupRequest, UserInfo
+from chatapp.users.model.user import SignupRequest, UserInfo, UpdateUserInfoRequest
 
 
 class UserDAO:
@@ -133,3 +133,36 @@ class UserDAO:
                 user_list.append(user)
 
             return user_list
+
+    def update_user_info(self, req: UpdateUserInfoRequest):
+
+        sub_query_list = []
+        if req.last_name is not None:
+            sub_query = "LAST_NAME = %(last_name)s"
+            sub_query_list.append(sub_query)
+
+        if req.first_name is not None:
+            sub_query = "FIRST_NAME = %(first_name)s"
+            sub_query_list.append(sub_query)
+
+        if req.prof_pic_url is not None:
+            sub_query = "PROF_PIC_URL = %(prof_pic_url)s"
+            sub_query_list.append(sub_query)
+
+        if len(sub_query_list) > 0:
+            sub_query_str = ",".join(sub_query_list)
+
+            query = f"""
+            UPDATE CHAT_USER
+            SET
+            {sub_query_str}
+            WHERE USER_ID = %(user_id)s
+            """
+
+            with self.db.cursor(dictionary= True) as cursor:
+                cursor.execute(query, {
+                    "user_id": req.user_id,
+                    "last_name": req.last_name,
+                    "first_name": req.first_name,
+                    "prof_pic_url": req.prof_pic_url
+                })
